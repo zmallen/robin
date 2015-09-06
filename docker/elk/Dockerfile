@@ -1,7 +1,8 @@
 FROM ubuntu:14.04
 MAINTAINER profit <profit@ccmo.me>
 # Grab powerdns bits
-RUN apt-get update &&  apt-get -y  install lua5.1 luarocks curl wget libssl-dev dnsutils && curl -lO http://downloads.powerdns.com/releases/deb/pdns-recursor_3.6.1-1_amd64.deb && dpkg -i pdns-recursor_3.6.1-1_amd64.deb && rm -rf pdns-recursor* && apt-get clean
+#RUN apt-get update &&  apt-get -y  install lua5.1 luarocks curl wget libssl-dev dnsutils && curl -lO http://downloads.powerdns.com/releases/deb/pdns-recursor_3.6.1-1_amd64.deb && dpkg -i pdns-recursor_3.6.1-1_amd64.deb && rm -rf pdns-recursor* && apt-get clean
+RUN apt-get update &&  apt-get -y  install lua5.1 luarocks curl wget libssl-dev dnsutils && curl -lO http://downloads.powerdns.com/releases/deb/pdns-recursor_3.7.3-1_amd64.deb && dpkg -i pdns-recursor_3.7.3-1_amd64.deb && rm -rf pdns-recursor* && apt-get clean
 # Grab luarocks bits
 RUN luarocks install luasocket && luarocks install json4lua && luarocks install redis-lua
 # Copy over config files
